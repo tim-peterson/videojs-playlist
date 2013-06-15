@@ -27,7 +27,7 @@ The Playlist plugin currently takes three options, ```tracksClassName```,  ```co
       'setTrack': 2
     });
     
-```tracksClassName``` is REQUIRED. It is a string of the className **without** the beginning ```.```. The ```tracksClassName``` element **requires** both  ```data-src="/path/to/track.m4a"``` and ```data-index="2"``` attributes in order to switch tracks.  See the HTML in example.html for explanation.
+```tracksClassName``` is REQUIRED. It is a string of the className **without** the beginning ```.```. ```tracksClassName``` elements **require** both  ```data-src="/path/to/track.m4a"``` and ```data-index="2"``` attributes in order to switch tracks.  See the HTML in example.html for explanation.
 
 ```continuous``` is optional. It specifies whether the playlist should play the next track after the previous one finishes. Setting this to ```false``` prevents the continuous playback. Not including this option is the same as setting it to ```true```.
 
