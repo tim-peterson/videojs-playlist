@@ -4,6 +4,11 @@ A video-js plugin to play multiple audio tracks or multiple videos.
 
 *Rationale:* The main goal in developing this plugin is to play **audio** files. Playing audio is possible either by swapping the ```<video>``` for an ```<audio>``` tag or by simply feeding audio tracks to the ```<video>``` tag. Both approaches have their pluses and minuses which are [documented here in the video.js issues.](https://github.com/videojs/video.js/issues/537?source=cc)
 
+DEMO
+----------------
+[http://tim-peterson.github.io/videojs-playlist/](http://tim-peterson.github.io/videojs-playlist/)
+
+
 Using the Plugin
 ----------------
 The plugin automatically registers itself when you include video.playlist.js in your page:
