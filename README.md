@@ -19,19 +19,22 @@ You probably want to include the default stylesheet, too. It provides some basic
 
     <link href="videojs.playlist.css" rel="stylesheet">
 
-The Playlist plugin currently takes three options, ```tracksClassName```,  ```continuous```, and ```setTrack```:
+The Playlist plugin has one required ```id``` and ```class``` names in the HTML
+
+    id="XXX-vjs-playlist" //playlist wrapper ID that is specific to the instantiated videojs object ID, e.g., id="audio-playlist-vjs-playlist". This is necessary such that multiple videojs players can exist on the same page.
+
+    class="vjs-track" // tracks className 
+
+The Playlist plugin currently takes three options,  ```continuous```, and ```setTrack```:
 
     myPlayerPlaylist.playlist({
-      'tracksClassName': 'trackSelector', 
       'continuous': true,
       'setTrack': 2
     });
-    
-```tracksClassName``` is REQUIRED. It is a string of the className **without** the beginning ```.```. ```tracksClassName``` elements **require** both  ```data-src="/path/to/track.m4a"``` and ```data-index="2"``` attributes in order to switch tracks.  See the HTML in example.html for explanation.
 
-```continuous``` is optional. It specifies whether the playlist should play the next track after the previous one finishes. Setting this to ```false``` prevents the continuous playback. Not including this option is the same as setting it to ```true```.
+```continuous (bool)```  specifies whether the playlist should play the next track after the previous one finishes. Setting this to ```false``` prevents the continuous playback. Not including this option is the same as setting it to ```true```.
 
-```setTrack``` is optional. It allows manually setting the first track that should be played.
+```setTrack (int)```  allows manually setting the initial track that should be played. It's a zero-indexed integer based on the number of tracks in the playlist.
 
 Future options being considered include: 1) a shuffle button to shuffle tracks and 2) rendering the playlist using JS rather than as it is currently done with HTML. The intent is to allow a playlist ```{}``` object to be fed in. I'd be happy for your feedback, petersontimr@gmail.com.
 

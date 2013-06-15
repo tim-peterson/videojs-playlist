@@ -14,17 +14,17 @@
     <source src='https://dhol01ptzx2vt.cloudfront.net/uploads/4/4/v1/01BorntoDie.ogg' type="audio/ogg">
     <source src='https://dhol01ptzx2vt.cloudfront.net/uploads/4/4/v1/01BorntoDie.webm' type="audio/webm">
 </video>
-<div class='vjs-playlist'>
+<div id="audio-playlist-vjs-playlist" class='vjs-playlist'>
   <ul>
     <li >
-      <a class='trackSelector currentTrack' href='#track-0' data-index='0' data-src='https://dhol01ptzx2vt.cloudfront.net/uploads/4/4/v1/01BorntoDie'> Born to die </a>
+      <a class='vjs-track currentTrack' href='#track-0-Born-to-Die' data-index='0' data-src='https://dhol01ptzx2vt.cloudfront.net/uploads/4/4/v1/01BorntoDie'> Born to die </a>
     </li>
      <li >
-      <a class='trackSelector' href='#track-1' data-index='1' data-src='https://dhol01ptzx2vt.cloudfront.net/uploads/4/4/v1/02OfftotheRaces'>
+      <a class='vjs-track' href='#track-1-Off-to-the-Races' data-index='1' data-src='https://dhol01ptzx2vt.cloudfront.net/uploads/4/4/v1/02OfftotheRaces'>
       Off to the Races</a>
     </li> 
      <li >
-      <a class='trackSelector' href='#track-2' data-index='2' data-src='https://dhol01ptzx2vt.cloudfront.net/uploads/4/4/v1/03BlueJeans'>
+      <a class='vjs-track' href='#track-2-Blue-Jeans' data-index='2' data-src='https://dhol01ptzx2vt.cloudfront.net/uploads/4/4/v1/03BlueJeans'>
       Blue Jeans</a>
     </li>         
   </ul>
@@ -39,7 +39,6 @@
 
   //note in the data-src's above that there are no file extensions, e.g., .m4a
   myPlayerPlaylist.playlist({
-      'tracksClassName': 'trackSelector', 
       'continuous': true,
       'setTrack': 2
   });

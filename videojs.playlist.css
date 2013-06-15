@@ -28,11 +28,11 @@ width:25%;
 }
 
 
-.trackSelector  {
+.vjs-track  {
 color:#F7F9FC;
 
 }
-.trackSelector:hover {
+.vjs-track:hover {
   color: #315B7E;
 }
 
