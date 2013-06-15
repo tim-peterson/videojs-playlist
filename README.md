@@ -25,7 +25,7 @@ The Playlist plugin has one required ```id``` and ```class``` names in the HTML
 
     class="vjs-track" // tracks className 
 
-The Playlist plugin currently takes three options,  ```continuous```, and ```setTrack```:
+The Playlist plugin currently takes two options,  ```continuous```, and ```setTrack```:
 
     myPlayerPlaylist.playlist({
       'continuous': true,
