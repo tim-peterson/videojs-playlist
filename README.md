@@ -14,16 +14,19 @@ You probably want to include the default stylesheet, too. It provides some basic
 
     <link href="videojs.playlist.css" rel="stylesheet">
 
-The Playlist plugin currently takes two options, ```tracksClassName``` and ```continuous```:
+The Playlist plugin currently takes three options, ```tracksClassName```,  ```continuous```, and ```setTrack```:
 
     myPlayerPlaylist.playlist({
       'tracksClassName': 'trackSelector', 
-      'continuous': true
+      'continuous': true,
+      'setTrack': 3
     });
     
-**```tracksClassName```** is a required option. It is a string of the className **without** the beginning ```.```. The tracksClassName element **must** possess  ```data-src="/path/to/track.m4a"``` and ```data-index="3"``` attributes needed for switching tracks. See the HTML in example.html for explanation.
+```**tracksClassName**``` is REQUIRED. It is a string of the className **without** the beginning ```.``` period. The tracksClassName element **requireds** both  ```data-src="/path/to/track.m4a"``` and ```data-index="3"``` attributes in order to switch tracks.  See the HTML in example.html for explanation.
 
-**```continuous```** is optional. It specifies whether the playlist should play the next track after the previous one finishes. Setting this to ```false``` prevents the continuous playback. Not including this option is the same as setting it to ```true```.
+```**continuous**``` is optional. It specifies whether the playlist should play the next track after the previous one finishes. Setting this to ```false``` prevents the continuous playback. Not including this option is the same as setting it to ```true```.
+
+```**setTrack**``` is optional. It allows manually setting the first track that should be played.
 
 Future options being considered include: 1) a shuffle button to shuffle tracks and 2) rendering the playlist using JS rather than as it is currently done with HTML. The intent is to allow a playlist ```{}``` object to be fed in.
 

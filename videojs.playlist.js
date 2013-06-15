@@ -11,13 +11,8 @@
         trackCount=tracks.length,
         player=this,
         currentTrack=tracks[0],
-        index=0;
-
-    //if want to start at track other than 1st track
-    if(typeof options.setTrack!='undefined' ){
-      currentTrack=tracks[options.setTrack];
-      index=options.setTrack;
-    }
+        index=0,
+        play=true;
 
     //manually selecting track
     for(var i=0; i<trackCount; i++){ 
@@ -25,12 +20,12 @@
         var track=this;
         index=this.getAttribute('data-index');
         console.log("a is clicked and index position is"+index+"the data-src is "+this.getAttribute('data-src')); 
-        //trackSelect($(this), player);
-        
+
         trackSelect(track, player);
      } 
     }
 
+    // for continuous play
     if(typeof options.continuous=='undefined' || options.continuous==true){
         console.log('play next!');
 
@@ -51,17 +46,18 @@
 
     //track select function for onended and manual selecting tracks
     var trackSelect=function(track, player){
-        console.log('track select click');
+        
        
        //get new src
         var src=track.getAttribute('data-src');
+        console.log('track select click src:'+src);
         player.src([
             { type: "audio/mp4", src:  src+".m4a" },
             { type: "audio/webm", src: src+".webm" },
             { type: "audio/ogg", src: src+".ogg" }
           ]); 
-        //play            
-        player.play();
+          
+        if(play) player.play();
 
         //remove 'currentTrack' CSS class 
         for(var i=0; i<trackCount; i++){ 
@@ -72,5 +68,16 @@
         //add 'currentTrack' CSS class 
         track.className = track.className + " currentTrack";
     }
+
+    //if want to start at track other than 1st track
+    if(typeof options.setTrack!='undefined' ){
+      options.setTrack=parseInt(options.setTrack);
+      currentTrack=tracks[options.setTrack];
+      index=options.setTrack;
+      play=false;
+      console.log('options.setTrack index'+index);
+      trackSelect(tracks[index], player);
+    }
+
 });
 })();
