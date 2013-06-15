@@ -27,12 +27,12 @@ The Playlist plugin currently takes three options, ```tracksClassName```,  ```co
       'setTrack': 2
     });
     
-```**tracksClassName**``` is REQUIRED. It is a string of the className **without** the beginning ```.``` period. The tracksClassName element **requireds** both  ```data-src="/path/to/track.m4a"``` and ```data-index="2"``` attributes in order to switch tracks.  See the HTML in example.html for explanation.
+```tracksClassName``` is REQUIRED. It is a string of the className **without** the beginning ```.```. The ```tracksClassName``` element **requires** both  ```data-src="/path/to/track.m4a"``` and ```data-index="2"``` attributes in order to switch tracks.  See the HTML in example.html for explanation.
 
-```**continuous**``` is optional. It specifies whether the playlist should play the next track after the previous one finishes. Setting this to ```false``` prevents the continuous playback. Not including this option is the same as setting it to ```true```.
+```continuous``` is optional. It specifies whether the playlist should play the next track after the previous one finishes. Setting this to ```false``` prevents the continuous playback. Not including this option is the same as setting it to ```true```.
 
-```**setTrack**``` is optional. It allows manually setting the first track that should be played.
+```setTrack``` is optional. It allows manually setting the first track that should be played.
 
-Future options being considered include: 1) a shuffle button to shuffle tracks and 2) rendering the playlist using JS rather than as it is currently done with HTML. The intent is to allow a playlist ```{}``` object to be fed in.
+Future options being considered include: 1) a shuffle button to shuffle tracks and 2) rendering the playlist using JS rather than as it is currently done with HTML. The intent is to allow a playlist ```{}``` object to be fed in. I'd be happy for your feedback, petersontimr@gmail.com.
 
 
