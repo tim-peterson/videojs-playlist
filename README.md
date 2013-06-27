@@ -1,6 +1,6 @@
 Video.js playlist
 ===================
-A video-js plugin to play multiple audio tracks or multiple videos. It is [one of a growing number of plugins](https://github.com/videojs/video.js/wiki/Plugins) for the awesome [video-js library](https://github.com/videojs/video.js)
+A video-js plugin to play multiple videos or multiple audio tracks . It is [one of a growing number of plugins](https://github.com/videojs/video.js/wiki/Plugins) for the awesome [video-js library](https://github.com/videojs/video.js)
 
 *Rationale:* The main goal in developing this plugin is to play **audio** files. Playing audio is possible with video-js either by swapping the ```<video>``` for an ```<audio>``` tag or by simply feeding audio tracks to the ```<video>``` tag. Both approaches have their pluses and minuses which are [documented here in video.js's issues.](https://github.com/videojs/video.js/issues/537?source=cc)
 
@@ -25,16 +25,27 @@ The Playlist plugin has one required ```id``` and ```class``` names in the HTML
 
     class="vjs-track" // tracks className 
 
-The Playlist plugin currently takes two options,  ```continuous```, and ```setTrack```:
+The Playlist plugin currently takes three options, ```mediaType```, ```continuous```, and ```setTrack```:
 
-    myPlayerPlaylist.playlist({
-      'continuous': true,
-      'setTrack': 2
+var myPlaylist=myPlayerPlaylist.playlist({
+      "mediaType": "audio"	
+      "continuous": true,
+      "setTrack": 2
     });
+
+```mediaType (string)```  specifies whether the player should play HTML5 video or audio. If you want ```<audio>``` set this option to ```"audio"```. Not including this option is the same as setting it to ```video```.
 
 ```continuous (bool)```  specifies whether the playlist should play the next track after the previous one finishes. Setting this to ```false``` prevents the continuous playback. Not including this option is the same as setting it to ```true```.
 
 ```setTrack (int)```  allows manually setting the initial track that should be played. It's a zero-indexed integer based on the number of tracks in the playlist.
+
+The playlist object returns several values:
+
+1. myPlaylist.index() //returns the current track (0-indexed)
+2. myPlaylist.trackCount //indicates the total number of tracks 
+3. myPlaylist.tracks //returns javascript object of all tracks document.querySelectorAll("#"+this.player.id+'.vjs-track')
+4. myPlaylist.prev() //manually triggers the previous track and stays on the 1st track if at the last track
+5. myPlaylist.next() //manually triggers the next track and returns to the 1st track if at the last track
 
 Future options being considered include: 1) a shuffle button to shuffle tracks and 2) rendering the playlist using JS rather than as it is currently done with HTML. The intent is to allow a playlist ```{}``` object to be fed in. I'd be happy for your feedback, petersontimr@gmail.com.
 
