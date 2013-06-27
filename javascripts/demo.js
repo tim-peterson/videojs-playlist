@@ -20,14 +20,13 @@ videojs("#video-playlist", {"height":"auto", "width":"auto"}).ready(function(eve
 videojs("#audio-playlist", {"height":"auto", "width":"auto","customControlsOnMobile": true}).ready(function(event){
     var myPlayer=this;
 
-    myPlayer.playlist({
+    var playlist=myPlayer.playlist({
     'mediaType': 'audio',
     'continuous': true,
     'setTrack': 2
     });
     myPlayer.on('playing', function(){
         var poster=document.getElementsByClassName("vjs-poster")[1];
-        console.log(poster);
         poster.style.display="block";
 
     }); 
@@ -40,6 +39,19 @@ videojs("#audio-playlist", {"height":"auto", "width":"auto","customControlsOnMob
 
     resizeVideoJS(); // Initialize the function
     window.onresize = resizeVideoJS; // Call the function on resize
+
+    document.onkeydown = checkKey; // to use left and right arrows to change tracks
+    function checkKey(e) {
+        e = e || window.event;
+        if(e.keyCode==37){
+          console.log("prev audio track");
+          playlist.prev();
+        } 
+        else if(e.keyCode==39){
+          console.log("next audio track");
+          playlist.next();
+        } 
+    } 
 
 });
 
