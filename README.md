@@ -41,11 +41,13 @@ var myPlaylist=myPlayerPlaylist.playlist({
 
 The playlist object returns several values:
 
+````
 1. myPlaylist.index() //returns the current track (0-indexed)
 2. myPlaylist.trackCount //indicates the total number of tracks 
 3. myPlaylist.tracks //returns javascript object of all tracks document.querySelectorAll("#"+this.player.id+'.vjs-track')
 4. myPlaylist.prev() //manually triggers the previous track and stays on the 1st track if at the last track
 5. myPlaylist.next() //manually triggers the next track and returns to the 1st track if at the last track
+````
 
 Future options being considered include: 1) a shuffle button to shuffle tracks and 2) rendering the playlist using JS rather than as it is currently done with HTML. The intent is to allow a playlist ```{}``` object to be fed in. I'd be happy for your feedback, petersontimr@gmail.com.
 
