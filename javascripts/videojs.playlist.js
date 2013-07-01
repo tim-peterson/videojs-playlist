@@ -1,11 +1,18 @@
 (function() {
 
  videojs.plugin('playlist', function(options) {
-
-  console.log('begin playlist plugin with video id:'+this.L);
+  //this.L="vjs_common_one";
   
+  
+  if(typeof this.L!="undefined") var id=this.L;
+  //else workData.myPlayer.id=this.tag.id;
+  else var id=this.id_;
+  //console.log('begin playlist plugin with video id:'+id);
+
+ //console.log(this);
+  //var id=this.tag.id;
   //assign variables
-  var tracks=document.querySelectorAll("#"+this.L+"-vjs-playlist .vjs-track"),
+  var tracks=document.querySelectorAll("#"+id+"-vjs-playlist .vjs-track"),
       trackCount=tracks.length,
       player=this,
       currentTrack=tracks[0],
@@ -17,7 +24,7 @@
        tracks[i].onclick = function(){ 
           //var track=this;
           //index=this.getAttribute('data-index');
-          console.log("a is clicked and index position is"+this.getAttribute('data-index')+"the data-src is "+this.getAttribute('data-src')); 
+          //console.log("a is clicked and index position is"+this.getAttribute('data-index')+"the data-src is "+this.getAttribute('data-src')); 
           //console.log("a is clicked and index position is"+index+"the data-src is "+this.getAttribute('data-src')); 
 
           trackSelect(this);
@@ -26,7 +33,7 @@
 
     // for continuous play
     if(typeof options.continuous=='undefined' || options.continuous==true){
-        console.log('options.continuous==true');
+        //console.log('options.continuous==true');
 
         player.on("ended", function(){
             //console.log('on ended');   
@@ -45,20 +52,22 @@
 
     //track select function for onended and manual selecting tracks
     var trackSelect=function(track){
-        
-       
+               
        //get new src
         var src=track.getAttribute('data-src');
-        index=track.getAttribute('data-index');
+        index=parseInt(track.getAttribute('data-index'));
         console.log('track select click src:'+src);
 
-        if(typeof options.mediaType!='undefined' && options.mediaType=="audio"){
-          console.log("audio");
+        if(player.tag.tagName=="AUDIO" || (typeof options.mediaType!='undefined' && options.mediaType=="audio") ){
+        //if((typeof options.mediaType!='undefined' && options.mediaType=="audio") ){ //|| (typeof player.options_.mediaType!='undefined' && player.options_.mediaType=="audio")          
+          //console.log("audio");
          player.src([
             { type: "audio/mp4", src:  src+".m4a" },
             { type: "audio/webm", src: src+".webm" },
             { type: "audio/ogg", src: src+".ogg" }
-          ]);          
+            /*{ type: "audio/mpeg", src:  src+".mp3" },
+            { type: "audio/ogg", src: src+".oga" }*/
+          ]);            
         }
         else{
           console.log("video");
@@ -88,7 +97,7 @@
       currentTrack=tracks[options.setTrack];
       index=options.setTrack;
       play=false;
-      console.log('options.setTrack index'+index);
+      //console.log('options.setTrack index'+index);
       trackSelect(tracks[index]);
       play=true;
     }
@@ -103,13 +112,16 @@
         return index;
       },
       prev:function(){
-        //var j=index-1;
-        //if(j<)
-        trackSelect(tracks[index-1]);
+        var j=index-1;
+        //console.log('j'+j);
+        if(j<0 || j>trackCount) j=0;
+        trackSelect(tracks[j]);
       },      
       next:function(){
-        //var j=index+1;
-        trackSelect(tracks[index+1]);
+        var j=index+1;
+        //console.log('j'+j);
+        if(j<0 || j>trackCount) j=0;
+        trackSelect(tracks[j]);
       }
     };
     return data;

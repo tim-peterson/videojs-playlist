@@ -96,7 +96,11 @@
 </div><!--container--> 
 
           <script src="javascripts/scale.fix.js"></script>
-          <script src="http://vjs.zencdn.net/4.0/video.js"></script>
+          <!--script src="http://vjs.zencdn.net/4.0/video.js"></script--><!--include this script versus the following 2 script tags to loaded the compiled production video.js build rather than the development build-->
+
+          <script>var projectRoot='https://rawgithub.com/tim-peterson/video.js/master/';</script>
+          <script src="javascripts/source-loader.js"></script>
+
           <script src='javascripts/videojs.playlist.js'></script>
           <script src='javascripts/demo.js'></script>    
   </body>
