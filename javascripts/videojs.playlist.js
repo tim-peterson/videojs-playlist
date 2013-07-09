@@ -58,25 +58,31 @@
         index=parseInt(track.getAttribute('data-index'));
         console.log('track select click src:'+src);
 
-        if(player.tag.tagName=="AUDIO" || (typeof options.mediaType!='undefined' && options.mediaType=="audio") ){
-        //if((typeof options.mediaType!='undefined' && options.mediaType=="audio") ){ //|| (typeof player.options_.mediaType!='undefined' && player.options_.mediaType=="audio")          
-          //console.log("audio");
-         player.src([
-            { type: "audio/mp4", src:  src+".m4a" },
-            { type: "audio/webm", src: src+".webm" },
-            { type: "audio/ogg", src: src+".ogg" }
-            /*{ type: "audio/mpeg", src:  src+".mp3" },
-            { type: "audio/ogg", src: src+".oga" }*/
-          ]);            
+        if(player.techName=='youtube'){       
+           player.src([
+            { type: type="video/youtube", src:  src}
+          ]);         
         }
         else{
-          console.log("video");
-          player.src([
-            { type: "video/mp4", src:  src+".m4v" },
-            { type: "video/webm", src: src+".webm" },
-            { type: "video/ogv", src: src+".ogv" }
-          ]);                     
+            if(player.tag.tagName=="AUDIO" || (typeof options.mediaType!='undefined' && options.mediaType=="audio") ){
+            player.src([
+                { type: "audio/mp4", src:  src+".m4a" },
+                { type: "audio/webm", src: src+".webm" },
+                { type: "audio/ogg", src: src+".ogg" }
+                /*{ type: "audio/mpeg", src:  src+".mp3" },
+                { type: "audio/ogg", src: src+".oga" }*/
+             ]);            
+            }
+            else{
+            console.log("video");
+              player.src([
+                { type: "video/mp4", src:  src+".m4v" },
+                { type: "video/webm", src: src+".webm" },
+                { type: "video/ogv", src: src+".ogv" }
+              ]);                     
+            }                 
         }
+
 
           
         if(play) player.play();
