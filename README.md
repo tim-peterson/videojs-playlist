@@ -23,12 +23,12 @@ The Playlist plugin has one required ```id``` and ```class``` names in the HTML
 
     id="XXX-vjs-playlist" //playlist wrapper ID that is specific to the instantiated videojs object ID, e.g., id="audio-playlist-vjs-playlist". This is necessary such that multiple videojs players can exist on the same page.
 
-    class="vjs-track" // tracks className 
+    class="vjs-track" // tracks className
 
 The Playlist plugin currently takes three options, ```mediaType```, ```continuous```, and ```setTrack```:
 
 var myPlaylist=myPlayerPlaylist.playlist({
-      "mediaType": "audio"	
+      "mediaType": "audio"
       "continuous": true,
       "setTrack": 2
     });
@@ -39,16 +39,16 @@ var myPlaylist=myPlayerPlaylist.playlist({
 
 ```setTrack (int)```  allows manually setting the initial track that should be played. It's a zero-indexed integer based on the number of tracks in the playlist.
 
+```onTrackSelected (function)```  callback for when a track has been selected. ```this``` will be set to to the HTML element that is now the currently selected track.
+
 The playlist object returns several values:
 
 ````
 1. myPlaylist.index() //returns the current track (0-indexed)
-2. myPlaylist.trackCount //indicates the total number of tracks 
+2. myPlaylist.trackCount //indicates the total number of tracks
 3. myPlaylist.tracks //returns javascript object of all tracks document.querySelectorAll("#"+this.player.id+'.vjs-track')
 4. myPlaylist.prev() //manually triggers the previous track and stays on the 1st track if at the last track
 5. myPlaylist.next() //manually triggers the next track and returns to the 1st track if at the last track
 ````
 
 Future options being considered include: 1) a shuffle button to shuffle tracks and 2) rendering the playlist using JS rather than as it is currently done with HTML. The intent is to allow a playlist ```{}``` object to be fed in. I'd be happy for your feedback, petersontimr@gmail.com.
-
-
