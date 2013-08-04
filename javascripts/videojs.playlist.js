@@ -2,12 +2,16 @@
 
  videojs.plugin('playlist', function(options) {
   //this.L="vjs_common_one";
-  
-  
+
+
   if(typeof this.L!="undefined") var id=this.L;
   //else workData.myPlayer.id=this.tag.id;
   else var id=this.id_;
   //console.log('begin playlist plugin with video id:'+id);
+
+  // maybe something with the version of videojs, but the previous
+  // weren't being set and this exists. // Björn
+  if(!id) id = this.id();
 
  //console.log(this);
   //var id=this.tag.id;
