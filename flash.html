@@ -32,12 +32,10 @@
     </div><!--span3-->
     <div class='span5'>   
      <h3>Video</h3> 
-    <video id="video-playlist" controls preload="metadata" 
+    <video id="video-playlist" controls preload="none" 
         poster="http://upload.wikimedia.org/wikipedia/en/7/71/Finding_Nemo_Coverart.png" class=" video-js vjs-default-skin" >
-        <source src="http://devimages.apple.com/iphone/samples/bipbop/gear1/prog_index.m3u8" type="application/vnd.apple.mpegurl" />
-        <source src='https://s3.amazonaws.com/onarbor-media/uploads/1/1/v1/Finding_Nemo_Teaser.m4v' type="video/mp4">
-        <source src='https://s3.amazonaws.com/onarbor-media/uploads/1/1/v1/Finding_Nemo_Teaser.ogv' type="video/ogv">
-        <source src="https://s3.amazonaws.com/onarbor-media/uploads/1/1/v1/Finding_Nemo_Teaser.webm" type="video/webm">    
+        <source src="http://klaus.geekserver.net/ming-video/test.flv" type='video/flv' />  
+        <!--source src="https://s3.amazonaws.com/onarbor-media/uploads/1/1/v1/Finding_Nemo_Teaser.webm" type="video/webm"-->    
     </video>     
     <div id="video-playlist-vjs-playlist" class='vjs-playlist' style='width:100%'>
       <ul>
@@ -51,32 +49,7 @@
       </ul>
     </div>
   </div><!--span5-->  
-  <div class='span4' id='audio-playlistSpan4'> 
-    <h3>Audio</h3>        
-      <audio id="audio-playlist" controls  
-          poster="https://dhol01ptzx2vt.cloudfront.net/uploads/4/4/v1/lanadelray.png" class="video-js vjs-default-skin">
-          <source src='https://dhol01ptzx2vt.cloudfront.net/uploads/4/4/v1/01BorntoDie.m4a' type="audio/mp4">
-          <source src='https://dhol01ptzx2vt.cloudfront.net/uploads/4/4/v1/01BorntoDie.ogg' type="audio/ogg">
-          <source src='https://dhol01ptzx2vt.cloudfront.net/uploads/4/4/v1/01BorntoDie.webm' type="audio/webm">
-      </audio>
-      <div class="jp-type-playlist" style=''>
-      <div id="audio-playlist-vjs-playlist" class='vjs-playlist jp-playlist' style='width:100%'>
-        <ul>
-          <li >
-            <a class='vjs-track currentTrack' href='#track-0' data-index='0' data-src='https://dhol01ptzx2vt.cloudfront.net/uploads/4/4/v1/01BorntoDie'> Born to die </a><!--//note in the data-src's above that there are no file extensions, e.g., .m4a-->
-          </li>
-           <li >
-            <a class='vjs-track jp-playlist-item' href='#track-1' data-index='1' data-src='https://dhol01ptzx2vt.cloudfront.net/uploads/4/4/v1/02OfftotheRaces'><!--//note in the data-src's above that there are no file extensions, e.g., .m4a-->
-            Off to the Races</a>
-          </li> 
-           <li >
-            <a class='vjs-track jp-playlist-item' href='#track-2' data-index='2' data-src='https://dhol01ptzx2vt.cloudfront.net/uploads/4/4/v1/03BlueJeans'><!--//note in the data-src's above that there are no file extensions, e.g., .m4a-->
-            Blue Jeans</a>
-          </li>         
-        </ul>
-      </div>
-      </div>
-  </div><!--span5--> 
+
 </div><!--row--> 
 <div class="row">
   <div class='span9 offset3'>
@@ -98,11 +71,12 @@
           <script src="javascripts/scale.fix.js"></script>
           <!--script src="http://vjs.zencdn.net/4.0/video.js"></script--><!--include this script versus the following 2 script tags to loaded the compiled production video.js build rather than the development build-->
 
-          <script>var projectRoot='https://rawgithub.com/tim-peterson/video.js/master/';</script>
-          <script src="javascripts/source-loader.js"></script>
-
-          <script src='javascripts/videojs.playlist.js'></script>
-          <script src='javascripts/demo.js'></script>    
+          <!--script>var projectRoot='https://rawgithub.com/tim-peterson/video.js/master/';</script>
+          <script src="javascripts/source-loader.js"></script-->
+          <script src='http://vjs.zencdn.net/4.1.0/video.js'></script>
+       
+          <!--script src='javascripts/videojs.playlist.js'></script-->
+          <script src='javascripts/demo-flash.js'></script>    
   </body>
 </html>
 
