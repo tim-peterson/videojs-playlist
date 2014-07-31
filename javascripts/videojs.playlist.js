@@ -3,10 +3,10 @@
  videojs.plugin('playlist', function(options) {
   //this.L="vjs_common_one";
   
-  
-  if(typeof this.L!="undefined") var id=this.L;
+  var id=this.id();
+ // if(typeof this.L!="undefined") var id=this.L;
   //else workData.myPlayer.id=this.tag.id;
-  else var id=this.id_;
+  //else var id=this.id_;
   //console.log('begin playlist plugin with video id:'+id);
 
  //console.log(this);
