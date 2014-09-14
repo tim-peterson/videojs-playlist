@@ -27,11 +27,13 @@ The Playlist plugin has one required ```id``` and ```class``` names in the HTML
 
 The Playlist plugin currently takes three options, ```mediaType```, ```continuous```, and ```setTrack```:
 
+```
 var myPlaylist=myPlayerPlaylist.playlist({
       "mediaType": "audio"
       "continuous": true,
       "setTrack": 2
     });
+```
 
 ```mediaType (string)```  specifies whether the player should play HTML5 video or audio. If you want ```<audio>``` set this option to ```"audio"```. Not including this option is the same as setting it to ```video```.
 
