@@ -25,10 +25,10 @@ The Playlist plugin has one required ```id``` and ```class``` names in the HTML
 
     class="vjs-track" // tracks className 
 
-The Playlist plugin currently takes three options, ```mediaType```, ```continuous```, and ```setTrack```:
+The Playlist plugin currently takes four options, ```mediaType```, ```continuous```, and ```setTrack```:
 
 var myPlaylist=myPlayerPlaylist.playlist({
-      "mediaType": "audio"	
+      "mediaType": "audio",	
       "continuous": true,
       "setTrack": 2
     });
@@ -38,6 +38,9 @@ var myPlaylist=myPlayerPlaylist.playlist({
 ```continuous (bool)```  specifies whether the playlist should play the next track after the previous one finishes. Setting this to ```false``` prevents the continuous playback. Not including this option is the same as setting it to ```true```.
 
 ```setTrack (int)```  allows manually setting the initial track that should be played. It's a zero-indexed integer based on the number of tracks in the playlist.
+
+```onTrackSelected (function)```  callback for when a track has been selected. ```this``` will be set to to the HTML element that is now the currently selected track.
+```
 
 The playlist object returns several values:
 

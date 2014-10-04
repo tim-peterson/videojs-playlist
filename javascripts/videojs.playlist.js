@@ -3,8 +3,9 @@
  videojs.plugin('playlist', function(options) {
   //this.L="vjs_common_one";
   
-  console.log(this);
-  var id=this.el().id;
+  console.log("this.id(): ");
+  console.log(this.id());
+  var id=this.id();
   //console.log('begin playlist plugin with video id:'+id);
 
  //console.log(this);
@@ -15,7 +16,8 @@
       player=this,
       currentTrack=tracks[0],
       index=0,
-      play=true;
+      play=true,
+      onTrackSelected=options.onTrackSelected;
 
     //manually selecting track
     for(var i=0; i<trackCount; i++){ 
@@ -93,6 +95,8 @@
         }
         //add 'currentTrack' CSS class 
         track.className = track.className + " currentTrack";
+        if(typeof onTrackSelected === 'function') onTrackSelected.apply(track);
+
     }
 
     //if want to start at track other than 1st track
