@@ -4,7 +4,7 @@
 videojs("#video-playlist", {"height":"auto", "width":"auto"}).ready(function(event){
     var myPlayer=this;
 
-    console.log(this.id());
+    console.log(myPlayer.el().id);
     myPlayer.playlist({
         'continuous': false
     });
