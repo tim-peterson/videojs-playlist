@@ -37,6 +37,11 @@ color:#F7F9FC;
 }
 
 
+.vjs-playlist ul{
+  padding: 0;
+list-style: none;
+}
+
 .vjs-playlist ul li {
 
 
@@ -51,11 +56,13 @@ color:#F7F9FC;
   -o-transition-duration: .4s;
   transition-duration: .4s;
   font-size:16px;
-  margin:10px;
+  /*margin:10px;*/
 }
 
 .vjs-playlist ul li a{
-  padding:10px;
+  padding:15px;
+  display:block;
+  width:100%;
 
 }
 .currentTrack{
