@@ -7,10 +7,10 @@ videojs("#video-playlist", {"height":"auto", "width":"auto"}).ready(function(eve
         'continuous': false
     });
 
-    if(typeof myPlayer.L!="undefined") myPlayer.id_=myPlayer.L;
+    //if(typeof myPlayer.L!="undefined") myPlayer.id_=myPlayer.L;
     
     function resizeVideoJS(){
-      var width = document.getElementById(myPlayer.id_).parentElement.offsetWidth;
+      var width = document.getElementById(myPlayer.el().id).parentElement.offsetWidth;
       var aspectRatio=8/12;
       myPlayer.width(width).height( width * aspectRatio); 
     }
@@ -33,10 +33,10 @@ videojs("#audio-playlist", {"height":"auto", "width":"auto","customControlsOnMob
 
     }); 
 
-    if(typeof myPlayer.L!="undefined") myPlayer.id_=myPlayer.L;
+    //if(typeof myPlayer.L!="undefined") myPlayer.id_=myPlayer.L;
     
     function resizeVideoJS(){
-      var width = document.getElementById(myPlayer.id_).parentElement.offsetWidth;
+      var width = document.getElementById(myPlayer.el().id).parentElement.offsetWidth;
       var aspectRatio=8/12;
       myPlayer.width(width).height( width * aspectRatio); 
     }

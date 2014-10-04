@@ -1,6 +1,6 @@
             // initialize video.js
 
-videojs.options.flash.swf = "http://vjs.zencdn.net/4.1.0/video-js.swf"
+videojs.options.flash.swf = "https://s3.amazonaws.com/timrpeterson/videojs-playlist/video-js.swf"
 
             
 //note in the data-src's above that there are no file extensions, e.g., .m4v
@@ -10,10 +10,9 @@ videojs("#video-playlist", {"height":"auto", "width":"auto", "techOrder": ["flas
         'continuous': false
     });*/
 
-    if(typeof myPlayer.L!="undefined") myPlayer.id_=myPlayer.L;
     
     function resizeVideoJS(){
-      var width = document.getElementById(myPlayer.id_).parentElement.offsetWidth;
+      var width = document.getElementById(myPlayer.el().id).parentElement.offsetWidth;
       var aspectRatio=8/12;
       myPlayer.width(width).height( width * aspectRatio); 
     }

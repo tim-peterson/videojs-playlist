@@ -3,8 +3,8 @@
  videojs.plugin('playlist', function(options) {
   //this.L="vjs_common_one";
   
-  
-  var id=this.id;
+  console.log(this);
+  var id=this.el().id;
   //console.log('begin playlist plugin with video id:'+id);
 
  //console.log(this);
@@ -62,7 +62,7 @@
           ]);         
         }
         else{
-            if(player.tag.tagName=="AUDIO" || (typeof options.mediaType!='undefined' && options.mediaType=="audio") ){
+            if(player.el().firstChild.tagName=="AUDIO" || (typeof options.mediaType!='undefined' && options.mediaType=="audio") ){
             player.src([
                 { type: "audio/mp4", src:  src+".m4a" },
                 { type: "audio/webm", src: src+".webm" },
@@ -74,7 +74,7 @@
             else{
             console.log("video");
               player.src([
-                { type: "video/mp4", src:  src+".m4v" },
+                { type: "video/mp4", src: src+".mp4" },
                 { type: "video/webm", src: src+".webm" },
                 { type: "video/ogv", src: src+".ogv" }
               ]);                     
