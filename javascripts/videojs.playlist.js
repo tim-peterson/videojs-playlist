@@ -3,9 +3,8 @@
  videojs.plugin('playlist', function(options) {
   //this.L="vjs_common_one";
   
-  console.log("this.id(): ");
-  console.log(this.id());
-  var id=this.id();
+  console.log(this);
+  var id=this.el().id;
   //console.log('begin playlist plugin with video id:'+id);
 
  //console.log(this);
