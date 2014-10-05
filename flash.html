@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Video.js playlist by Tim Peterson</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link href="http://vjs.zencdn.net/4.0/video-js.css" rel="stylesheet">
+    <link href="stylesheets/videojs.playlist.css" rel="stylesheet">    
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+<div class='container'>
+  <div class='row'>
+    <div class='span3'>
+        <h1>Videojs-HTML5 video and audio playlist</h1>
+        <p>The playlist plugin provides multiple track playlist for both HTML5 <b style='font-size:20px'><code>&#60;video&#62;</code></b> and <b style='font-size:20px'><code>&#60;audio&#62;</code></b>.
+        <ol> The two main features are:
+          <li>Playing either HTML5 <b>video</b> or <b>audio</b></li>
+          <li>Playing <b>multiple</b> video or audio tracks.</li>
+        </ol>
+        </p>
+        <h3>Required class and id names: </h3>
+        <div class="well"><b style='font-size:20px'><code>id="XXX-vjs-playlist"</code></b> //playlist wrapper ID that is specific to the instantiated videojs id, e.g., id="audio-playlist-vjs-playlist". This allows for multiple videojs players on the same page.<br><br><b style='font-size:20px'><code>class="vjs-track"</code></b> // tracks className is required</div>
+
+    </div><!--span3-->
+    <div class='span5'>   
+     <h3>Video</h3> 
+    <video id="video-playlist" controls preload="none" 
+        poster="http://upload.wikimedia.org/wikipedia/en/7/71/Finding_Nemo_Coverart.png" class=" video-js vjs-default-skin" >
+        <source src="http://klaus.geekserver.net/ming-video/test.flv" type='video/flv' />  
+        <!--source src="https://s3.amazonaws.com/onarbor-media/uploads/1/1/v1/Finding_Nemo_Teaser.webm" type="video/webm"-->    
+    </video>     
+    <div id="video-playlist-vjs-playlist" class='vjs-playlist' style='width:100%'>
+      <ul>
+        <li>
+          <a class='vjs-track currentTrack' href='#episode-0' data-index='0' data-src='https://s3.amazonaws.com/onarbor-media/uploads/1/1/v1/Finding_Nemo_Teaser'> Finding Nemo </a><!--//note in the data-src's above that there are no file extensions, e.g., .m4v-->
+        </li>
+         <li >
+          <a class='vjs-track' href='#episode-1' data-index='1' data-src='https://s3.amazonaws.com/onarbor-media/uploads/1/1/v1/Big_Buck_Bunny_Trailer'><!--//note in the data-src's above that there are no file extensions, e.g., .m4v-->
+          Big Buck Bunny</a>
+        </li>       
+      </ul>
+    </div>
+  </div><!--span5-->  
+
+</div><!--row--> 
+<div class="row">
+  <div class='span9 offset3'>
+        <footer>
+         <p class="view"><a href="https://github.com/tim-peterson/videojs-playlist">View the Project on GitHub <small>tim-peterson/videojs-playlist</small></a></p>
+
+        <ul>
+          <li><a href="https://github.com/tim-peterson/videojs-playlist/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/tim-peterson/videojs-playlist/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/tim-peterson/videojs-playlist">View On <strong>GitHub</strong></a></li>
+        </ul>         
+          <p>This project is maintained by <a href="https://github.com/tim-peterson">tim-peterson</a></p>
+          <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+        </footer>
+  </div><!--span9 offset3-->
+</div><!--row--> 
+</div><!--container--> 
+
+          <script src="javascripts/scale.fix.js"></script>
+          <!--script src="http://vjs.zencdn.net/4.0/video.js"></script--><!--include this script versus the following 2 script tags to loaded the compiled production video.js build rather than the development build-->
+
+          <!--script>var projectRoot='https://rawgithub.com/tim-peterson/video.js/master/';</script>
+          <script src="javascripts/source-loader.js"></script-->
+          <script src='http://vjs.zencdn.net/4.1.0/video.js'></script>
+       
+          <!--script src='javascripts/videojs.playlist.js'></script-->
+          <script src='javascripts/demo-flash.js'></script>    
+  </body>
+</html>
+
+
+
+
+
+

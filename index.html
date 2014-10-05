@@ -3,14 +3,35 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Video.js playlist by Tim Peterson</title>
+    <title>Video.js playlist by Tim Peterson (@Onarbor)</title>
+
+
+  <meta content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport" />
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="author" content="Onarbor, Inc.-Tim Peterson">
+  <!--link rel="publisher" href="https://plus.google.com/106286109329365264890"-->
+  <link rel="publisher" href="https://plus.google.com/+Onarbor">
+  
+
+  <link rel="image_src" href="http://onarbor.com/assets/img/onarborLogoTextBlue.png">
+  <link rel="canonical" href="https://onarbor.com/">
+  <!--http://d2eeipcrcdle6.cloudfront.net/seo-cheat-sheet/SEOCheatSheet_2-2013.pdf-->
+
+  <meta property="og:title" content="VideoJS-tim-peterson-playlist"/> 
+  <meta property="og:type" content="website"/> 
+  <meta property="og:description" content="VideoJS-tim-peterson-playlist"/> 
+  <meta property="og:image" content="http://onarbor.com/assets/img/onarborFB.jpg"/> 
+  <meta property="og:image:secure_url" content="https://onarbor.com/assets/img/onarborFB.jpg" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:url" content="http://onarbor.com"/> 
+  <meta property="og:site_name" content="Onarbor"/> 
 
     <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
-    <link href="http://vjs.zencdn.net/4.0/video-js.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://s3.amazonaws.com/timrpeterson/videojs-playlist/video-js.css" rel="stylesheet">
     <link href="stylesheets/videojs.playlist.css" rel="stylesheet">    
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -18,8 +39,9 @@
   <body>
 <div class='container'>
   <div class='row'>
-    <div class='span3'>
-        <h1>Videojs-HTML5 video and audio playlist</h1>
+    <div class='col-md-3'>
+        <h1>Videojs-HTML5 video and audio playlist </h1>
+        <h4>As seen on <a target="_blank" href='https://onarbor.com'><img style='width:100px;40px' src="https://onarbor.com/assets/img/onarbor_blue_logo.png"></a></h4>
         <p>The playlist plugin provides multiple track playlist for both HTML5 <b style='font-size:20px'><code>&#60;video&#62;</code></b> and <b style='font-size:20px'><code>&#60;audio&#62;</code></b>.
         <ol> The two main features are:
           <li>Playing either HTML5 <b>video</b> or <b>audio</b></li>
@@ -29,80 +51,76 @@
         <h3>Required class and id names: </h3>
         <div class="well"><b style='font-size:20px'><code>id="XXX-vjs-playlist"</code></b> //playlist wrapper ID that is specific to the instantiated videojs id, e.g., id="audio-playlist-vjs-playlist". This allows for multiple videojs players on the same page.<br><br><b style='font-size:20px'><code>class="vjs-track"</code></b> // tracks className is required</div>
 
-    </div><!--span3-->
-    <div class='span5'>   
-     <h3>Video</h3> 
+    </div><!--col-md-3-->
+    <div class='col-md-6'>   
+    <h3>Video</h3> 
     <video id="video-playlist" controls preload="metadata" 
-        poster="http://upload.wikimedia.org/wikipedia/en/7/71/Finding_Nemo_Coverart.png" class=" video-js vjs-default-skin" >
-        <source src="http://devimages.apple.com/iphone/samples/bipbop/gear1/prog_index.m3u8" type="application/vnd.apple.mpegurl" />
-        <source src='https://s3.amazonaws.com/onarbor-media/uploads/1/1/v1/Finding_Nemo_Teaser.m4v' type="video/mp4">
-        <source src='https://s3.amazonaws.com/onarbor-media/uploads/1/1/v1/Finding_Nemo_Teaser.ogv' type="video/ogv">
-        <source src="https://s3.amazonaws.com/onarbor-media/uploads/1/1/v1/Finding_Nemo_Teaser.webm" type="video/webm">    
+        poster="https://d1gajuxrsak92a.cloudfront.net/uploads/works/0fe589a84faf71cc83088638937e0456c007f39c/icon/1280Screen%20Shot%202014-09-27%20at%2011.46.35%20PM.jpg" class=" video-js vjs-default-skin" >
+        <!--source src="http://devimages.apple.com/iphone/samples/bipbop/gear1/prog_index.m3u8" type="application/vnd.apple.mpegurl" /-->
+        <source src='https://s3.amazonaws.com/onarbor-previews/uploads/works/7aba13a97d304182e277ca2bdd56c9145678af37/v1/OnarborWriteReviewDemo2.mp4' type="video/mp4">
+        <source src="https://s3.amazonaws.com/onarbor-previews/uploads/works/7aba13a97d304182e277ca2bdd56c9145678af37/v1/OnarborWriteReviewDemo2.webm" type="video/webm">           
+        <source src='https://s3.amazonaws.com/onarbor-previews/uploads/works/7aba13a97d304182e277ca2bdd56c9145678af37/v1/OnarborWriteReviewDemo2.ogv' type="video/ogv">
     </video>     
     <div id="video-playlist-vjs-playlist" class='vjs-playlist' style='width:100%'>
       <ul>
-        <li>
-          <a class='vjs-track currentTrack' href='#episode-0' data-index='0' data-src='https://s3.amazonaws.com/onarbor-media/uploads/1/1/v1/Finding_Nemo_Teaser'> Finding Nemo </a><!--//note in the data-src's above that there are no file extensions, e.g., .m4v-->
-        </li>
          <li >
-          <a class='vjs-track' href='#episode-1' data-index='1' data-src='https://s3.amazonaws.com/onarbor-media/uploads/1/1/v1/Big_Buck_Bunny_Trailer'><!--//note in the data-src's above that there are no file extensions, e.g., .m4v-->
-          Big Buck Bunny</a>
-        </li>       
+          <a class='vjs-track' href='#episode-0' data-index='0' data-src='https://s3.amazonaws.com/onarbor-previews/uploads/works/7aba13a97d304182e277ca2bdd56c9145678af37/v1/OnarborWriteReviewDemo2'><!--//note in the data-src's above that there are no file extensions, e.g., .m4v-->
+          Writing a review (Onarbor) </a>
+        </li>  
+         <li >
+          <a class='vjs-track' href='#episode-1' data-index='1' data-src='https://s3.amazonaws.com/onarbor-previews/uploads/works/3e1f75623064a8aa45bcd66e01f65e1e27736960/v1/onarborScreencast6'><!--//note in the data-src's above that there are no file extensions, e.g., .m4v-->
+          Onarbor Demo Video</a>
+        </li>  
       </ul>
     </div>
-  </div><!--span5-->  
-  <div class='span4' id='audio-playlistSpan4'> 
+  </div><!--col-md-6-->  
+  <div class='col-md-3' id='audio-playlistSpan4'> 
     <h3>Audio</h3>        
       <audio id="audio-playlist" controls  
-          poster="https://dhol01ptzx2vt.cloudfront.net/uploads/4/4/v1/lanadelray.png" class="video-js vjs-default-skin">
-          <source src='https://dhol01ptzx2vt.cloudfront.net/uploads/4/4/v1/01BorntoDie.m4a' type="audio/mp4">
-          <source src='https://dhol01ptzx2vt.cloudfront.net/uploads/4/4/v1/01BorntoDie.ogg' type="audio/ogg">
-          <source src='https://dhol01ptzx2vt.cloudfront.net/uploads/4/4/v1/01BorntoDie.webm' type="audio/webm">
+          poster="https://s3.amazonaws.com/timrpeterson/videojs-playlist/lanadelray.png" class="video-js vjs-default-skin">
+          <source src='https://s3.amazonaws.com/timrpeterson/videojs-playlist/01BorntoDie.m4a' type="audio/mp4">
+          <source src='https://s3.amazonaws.com/timrpeterson/videojs-playlist/01BorntoDie.webm' type="audio/webm">            
+          <source src='https://s3.amazonaws.com/timrpeterson/videojs-playlist/01BorntoDie.ogg' type="audio/ogg">
+
       </audio>
       <div class="jp-type-playlist" style=''>
       <div id="audio-playlist-vjs-playlist" class='vjs-playlist jp-playlist' style='width:100%'>
         <ul>
           <li >
-            <a class='vjs-track currentTrack' href='#track-0' data-index='0' data-src='https://dhol01ptzx2vt.cloudfront.net/uploads/4/4/v1/01BorntoDie'> Born to die </a><!--//note in the data-src's above that there are no file extensions, e.g., .m4a-->
+            <a class='vjs-track currentTrack' href='#track-0' data-index='0' data-src='https://s3.amazonaws.com/timrpeterson/videojs-playlist/01BorntoDie'> Born to Die </a><!--//note in the data-src's above that there are no file extensions, e.g., .m4a-->
           </li>
            <li >
-            <a class='vjs-track jp-playlist-item' href='#track-1' data-index='1' data-src='https://dhol01ptzx2vt.cloudfront.net/uploads/4/4/v1/02OfftotheRaces'><!--//note in the data-src's above that there are no file extensions, e.g., .m4a-->
+            <a class='vjs-track jp-playlist-item' href='#track-1' data-index='1' data-src='https://s3.amazonaws.com/timrpeterson/videojs-playlist/02OfftotheRaces'><!--//note in the data-src's above that there are no file extensions, e.g., .m4a-->
             Off to the Races</a>
           </li> 
            <li >
-            <a class='vjs-track jp-playlist-item' href='#track-2' data-index='2' data-src='https://dhol01ptzx2vt.cloudfront.net/uploads/4/4/v1/03BlueJeans'><!--//note in the data-src's above that there are no file extensions, e.g., .m4a-->
+            <a class='vjs-track jp-playlist-item' href='#track-2' data-index='2' data-src='https://s3.amazonaws.com/timrpeterson/videojs-playlist/03BlueJeans'><!--//note in the data-src's above that there are no file extensions, e.g., .m4a-->
             Blue Jeans</a>
           </li>         
         </ul>
       </div>
       </div>
-  </div><!--span5--> 
+  </div><!--col-md-3--> 
 </div><!--row--> 
 <div class="row">
-  <div class='span9 offset3'>
+  <div class='col-md-9 col-md-offset-3'>
         <footer>
          <p class="view"><a href="https://github.com/tim-peterson/videojs-playlist">View the Project on GitHub <small>tim-peterson/videojs-playlist</small></a></p>
 
         <ul>
           <li><a href="https://github.com/tim-peterson/videojs-playlist/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/tim-peterson/videojs-playlist/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/tim-peterson/videojs-playlist">View On <strong>GitHub</strong></a></li>
         </ul>         
           <p>This project is maintained by <a href="https://github.com/tim-peterson">tim-peterson</a></p>
           <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
         </footer>
-  </div><!--span9 offset3-->
+  </div><!--col-md-9 col-md-offset-3-->
 </div><!--row--> 
 </div><!--container--> 
 
-          <script src="javascripts/scale.fix.js"></script>
-          <!--script src="http://vjs.zencdn.net/4.0/video.js"></script--><!--include this script versus the following 2 script tags to loaded the compiled production video.js build rather than the development build-->
-
-          <script>var projectRoot='https://rawgithub.com/tim-peterson/video.js/master/';</script>
-          <script src="javascripts/source-loader.js"></script>
-
-          <script src='javascripts/videojs.playlist.js'></script>
-          <script src='javascripts/demo.js'></script>    
+      <script src="https://s3.amazonaws.com/timrpeterson/videojs-playlist/video.js"></script>
+        
+      <script src='javascripts/videojs.playlist.js'></script>
+      <script src='javascripts/demo.js'></script>    
   </body>
 </html>
 
