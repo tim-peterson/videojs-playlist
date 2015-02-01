@@ -71,6 +71,7 @@
               player.src([
                   { type: "audio/mp4", src:  src+".m4a" },
                   { type: "audio/webm", src: src+".webm" },
+                  { type: type="video/youtube", src:  src},
                   { type: "audio/ogg", src: src+".ogg" }
                   /*{ type: "audio/mpeg", src:  src+".mp3" },
                   { type: "audio/ogg", src: src+".oga" }*/
@@ -80,6 +81,7 @@
             //console.log("video");
               player.src([                
                 { type: "video/mp4", src:  src+".mp4" },
+                { type: type="video/youtube", src:  src},
                 { type: "video/webm", src: src+".webm" }
                 //{ type: "video/ogv", src: src+".ogv" }
               ]);
@@ -111,6 +113,11 @@
       //console.log('options.setTrack index'+index);
       trackSelect(tracks[index]);
       play=true;
+    }
+    if (window.location.hash) {
+      var hash = window.location.hash.substring(9);
+      play = false;
+      trackSelect(tracks[hash]);
     }
 
     var data={
