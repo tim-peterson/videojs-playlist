@@ -4,7 +4,8 @@
     var defaults = {
         continuous: true,
         debug: false,
-        setTrack: 0
+        setTrack: 0,
+        hash: true,
     },
     playlist;
 
@@ -50,13 +51,18 @@
                 }
                 //add 'currentTrack' CSS class
                 track.className = track.className + ' currentTrack';
+
                 if(typeof settings.onTrackSelected === 'function') {
                     settings.onTrackSelected.apply(track);
                 }
 
+                if (!settings.hash) {
+                    return false;
+                }
+
             },
             log = function(message) {
-                if (settings.debugging) {
+                if (settings.debug) {
                     console.log('Video.js Playlist Plugin: ', message);
                 }
             };
@@ -64,7 +70,7 @@
         log('begin with video id - ' + player_id);
 
         // manually selecting track
-        for (var i = 0; i < trackCount; i++){
+        for (var i = 0; i < trackCount; i++) {
            tracks[i].onclick = trackSelect;
         }
 
@@ -86,6 +92,15 @@
             });
         } else {
             log('dont play next!');
+        }
+
+        if (window.location.hash) {
+            for (var i = 0; i < trackCount; i++) {
+                if (tracks[i].getAttribute('href') === window.location.hash) {
+                    index = i;
+                    break;
+                }
+            }
         }
 
         play = false;
@@ -116,6 +131,7 @@
                 if(j < 0 || j > trackCount) {
                     j = 0;
                 }
+
                 trackSelect(tracks[j]);
             }
         };
