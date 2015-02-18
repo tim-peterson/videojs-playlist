@@ -1,148 +1,142 @@
-(function() {
+(function(videojs) {
+    'use strict';
 
- videojs.plugin('playlist', function(options) {
-  //this.L="vjs_common_one";
-  
+    var defaults = {
+        continuous: true,
+        debug: false,
+        setTrack: 0,
+        hash: true,
+    },
+    playlist;
 
-  console.log(this);
-  var id=this.el().id;
+    /**
+     * Initialize the plugin.
+     * @param options (optional) {object} configuration for the plugin
+     */
+    playlist = function (options) {
+        var settings = videojs.util.mergeOptions(defaults, options),
+            player = this,
+            player_id = player.el().id,
+            tracks = document.querySelectorAll('#' + player_id + '-vjs-playlist .vjs-track'),
+            trackCount = tracks.length,
+            index = settings.setTrack,
+            play = true,
+            //track select function for onended and manual selecting tracks
+            trackSelect = function(track) {
+                // if from a click
+                if (track instanceof MouseEvent) {
+                    track = this;
+                }
 
-  //console.log('begin playlist plugin with video id:'+id);
+                //get new src
+                var src = track.getAttribute('data-src'),
+                    type = track.getAttribute('data-type'),
+                    index = parseInt(track.getAttribute('data-index')) || index;
 
- //console.log(this);
-  //var id=this.tag.id;
-  //assign variables
-  var tracks=document.querySelectorAll("#"+id+"-vjs-playlist .vjs-track"),
-      trackCount=tracks.length,
-      player=this,
-      currentTrack=tracks[0],
-      index=0,
-      play=true,
-      onTrackSelected=options.onTrackSelected;
+                log('track select click src - ' + src);
 
-    //manually selecting track
-    for(var i=0; i<trackCount; i++){
-       tracks[i].onclick = function(){
-          //var track=this;
-          //index=this.getAttribute('data-index');
-          //console.log("a is clicked and index position is"+this.getAttribute('data-index')+"the data-src is "+this.getAttribute('data-src'));
-          //console.log("a is clicked and index position is"+index+"the data-src is "+this.getAttribute('data-src'));
+                player.src([
+                    {type: type, src: src}
+                ]);
 
-          trackSelect(this);
-       }
-    }
+                if (play) {
+                    player.play();
+                }
 
-    // for continuous play
-    if(typeof options.continuous=='undefined' || options.continuous==true){
-        //console.log('options.continuous==true');
+                //remove 'currentTrack' CSS class
+                for(var i = 0; i < trackCount; i++){
+                    if (tracks[i].classList.contains('current-track')) {
+                        tracks[i].className = tracks[i].className.replace(/\bcurrent-track\b/, 'nonPlayingTrack');
+                    }
+                }
+                //add 'current-track' CSS class
+                track.className = track.className + ' current-track';
 
-        player.on("ended", function(){
-            //console.log('on ended');
+                if(typeof settings.onTrackSelected === 'function') {
+                    settings.onTrackSelected.apply(track);
+                }
 
-            index++;
-            if(index>=trackCount){
-              //console.log('go to beginning');
-              index=0;
-            }
-            else;// console.log('trigger click next track');
-            tracks[index].click();
+                if (!settings.hash) {
+                    return false;
+                }
 
-        });// on ended
-    }
-    else;// console.log('dont play next!');
+            },
+            log = function(message) {
+                if (settings.debug) {
+                    console.log('Video.js Playlist Plugin: ', message);
+                }
+            };
 
-    //track select function for onended and manual selecting tracks
-    var trackSelect=function(track){
+        log('begin with video id - ' + player_id);
 
-       //get new src
-        var src=track.getAttribute('data-src');
-        index=parseInt(track.getAttribute('data-index')) || index;
-        //console.log('track select click src:'+src);
-
-        if(player.techName=='youtube'){
-           player.src([
-            { type: type="video/youtube", src:  src}
-          ]);
-        }
-        else{
-
-            if(player.el().firstChild.tagName=="AUDIO" || (typeof options.mediaType!='undefined' && options.mediaType=="audio") ){
-
-              player.src([
-                  { type: "audio/mp4", src:  src+".m4a" },
-                  { type: "audio/webm", src: src+".webm" },
-                  { type: type="video/youtube", src:  src},
-                  { type: "audio/ogg", src: src+".ogg" }
-                  /*{ type: "audio/mpeg", src:  src+".mp3" },
-                  { type: "audio/ogg", src: src+".oga" }*/
-               ]);
-            }
-            else{
-            //console.log("video");
-              player.src([                
-                { type: "video/mp4", src:  src+".mp4" },
-                { type: type="video/youtube", src:  src},
-                { type: "video/webm", src: src+".webm" }
-                //{ type: "video/ogv", src: src+".ogv" }
-              ]);
-            }
+        // manually selecting track
+        for (var i = 0; i < trackCount; i++) {
+           tracks[i].onclick = trackSelect;
         }
 
+        // for continuous play
+        if(settings.continuous === true) {
+            log('continuous');
 
+            player.on('ended', function() {
+                log('on ended');
 
-        if(play) player.play();
+                index++;
+                if(index >= trackCount) {
+                  log('go to beginning');
+                  index = 0;
+                } else {
+                    log('trigger click next track');
+                    tracks[index].click();
+                }
+            });
+        } else {
+            log('dont play next!');
+        }
 
-        //remove 'currentTrack' CSS class
-        for(var i=0; i<trackCount; i++){
-            if(tracks[i].classList.contains('currentTrack')){
-                tracks[i].className=tracks[i].className.replace(/\bcurrentTrack\b/,'nonPlayingTrack');
+        if (window.location.hash) {
+            for (var i = 0; i < trackCount; i++) {
+                if (tracks[i].getAttribute('href') === window.location.hash) {
+                    index = i;
+                    break;
+                }
             }
         }
-        //add 'currentTrack' CSS class
-        track.className = track.className + " currentTrack";
-        if(typeof onTrackSelected === 'function') onTrackSelected.apply(track);
 
-    }
+        play = false;
+        log('setTrack - ' + index);
+        trackSelect(tracks[index]);
+        play = true;
 
-    //if want to start at track other than 1st track
-    if(typeof options.setTrack!='undefined' ){
-      options.setTrack=parseInt(options.setTrack);
-      currentTrack=tracks[options.setTrack];
-      index=options.setTrack;
-      play=false;
-      //console.log('options.setTrack index'+index);
-      trackSelect(tracks[index]);
-      play=true;
-    }
-    if (window.location.hash) {
-      var hash = window.location.hash.substring(9);
-      play = false;
-      trackSelect(tracks[hash]);
-    }
+        return {
+            tracks: tracks,
+            trackCount: trackCount,
+            play: function() {
+                return play;
+            },
+            index: function() {
+                return index;
+            },
+            prev: function() {
+                var j = index - 1;
+                this.goTo(j);
+            },
+            next: function(){
+                var j = index + 1;
+                this.goTo(j);
+            },
+            goTo: function(j) {
+                log('go to - ' + j);
 
-    var data={
-      tracks: tracks,
-      trackCount: trackCount,
-      play:function(){
-        return play;
-      },
-      index:function(){
-        return index;
-      },
-      prev:function(){
-        var j=index-1;
-        //console.log('j'+j);
-        if(j<0 || j>trackCount) j=0;
-        trackSelect(tracks[j]);
-      },
-      next:function(){
-        var j=index+1;
-        //console.log('j'+j);
-        if(j<0 || j>trackCount) j=0;
-        trackSelect(tracks[j]);
-      }
+                if(j < 0 || j > trackCount) {
+                    j = 0;
+                }
+
+                trackSelect(tracks[j]);
+            }
+        };
     };
-    return data;
-});
-//return videojsplugin;
-})();
+
+    // register the plugin
+    videojs.plugin('playlist', playlist);
+})(window.videojs);

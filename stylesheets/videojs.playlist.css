@@ -1,89 +1,51 @@
-.video-js, .vjs-control-bar{
--moz-border-top-left-radius: 5px;
-border-top-left-radius: 5px;
--moz-border-top-right-radius: 5px;
-border-top-right-radius: 5px;
--moz-border-bottom-left-radius: 0px;
-border-bottom-left-radius: 0px;
--moz-border-bottom-right-radius: 0px;
-border-bottom-right-radius: 0px;
-
-}
-
-
-/* end video.css********************************************************/
+/* wrapper */
 .vjs-playlist {
-width: 100%;
+    width: 100%;
+    background-color: #2D2D2D;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 
-background-color: 
-#2D2D2D;
-font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-border-bottom-left-radius:5px;
-border-bottom-right-radius:5px;
--webkit-border-bottom-left-radius:5px;
--webkit-border-bottom-right-radius:5px;
--moz-border-bottom-left-radius:5px;
--moz-border-bottom-right-radius:5px;
-width:25%;
+.vjs-playlist.vjs-playlist-bottom {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.vjs-playlist.vjs-playlist-right {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+/* list */
+.vjs-playlist ul {
+    padding: 0;
+    list-style: none;
 }
 
 
-.vjs-track  {
-color:#F7F9FC;
-
-}
-.vjs-track:hover {
-  color: #315B7E;
-}
-
-
-.vjs-playlist ul{
-  padding: 0;
-list-style: none;
-}
-
-.vjs-playlist ul li {
-
-
-  background-color: 
-  #2D2D2D;
-  -moz-transition-property: background-color;
-  -webkit-transition-property: background-color;
-  -o-transition-property: background-color;
-  transition-property: background-color;
-  -moz-transition-duration: .4s;
-  -webkit-transition-duration: .4s;
-  -o-transition-duration: .4s;
-  transition-duration: .4s;
-  font-size:16px;
-  /*margin:10px;*/
+/* track */
+.vjs-playlist .vjs-track {
+    color: #F7F9FC;
+    padding: 1em;
+    cursor: pointer;
+    background-color: #2D2D2D;
+    font-size: 16px;
+    transition-property: background-color;
+    transition-duration: .4s;
+    display: block;
+    width: 100%;
 }
 
-.vjs-playlist ul li a{
-  padding:15px;
-  display:block;
-  width:100%;
-
-}
-.currentTrack{
-color: gray;
-}
-
-.currentTrack{
-  background-color:#373737;
-
+.vjs-playlist .vjs-track:hover {
+    color: #315B7E;
+    background-color: #373737;
+    transition-duration: .1s;
+    transition-property: background-color;
+    text-decoration: none;
+    text-shadow: none;
 }
 
-.vjs-playlist ul li:hover {
-background-color: 
-#373737;
--moz-transition-property: background-color;
--webkit-transition-property: background-color;
--o-transition-property: background-color;
-transition-property: background-color;
--moz-transition-duration: .1s;
--webkit-transition-duration: .1s;
--o-transition-duration: .1s;
-transition-duration: .1s;
+/* current track */
+.vjs-playlist .vjs-track.current-track {
+    color: #F7F9FC;
+    background-color: #474747;
 }
-
