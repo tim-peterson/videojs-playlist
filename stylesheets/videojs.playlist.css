@@ -23,7 +23,7 @@
 
 
 /* track */
-.vjs-track {
+.vjs-playlist .vjs-track {
     color: #F7F9FC;
     padding: 1em;
     cursor: pointer;
@@ -35,7 +35,7 @@
     width: 100%;
 }
 
-.vjs-track:hover {
+.vjs-playlist .vjs-track:hover {
     color: #315B7E;
     background-color: #373737;
     transition-duration: .1s;
@@ -45,10 +45,7 @@
 }
 
 /* current track */
-.currentTrack {
+.vjs-playlist .vjs-track.current-track {
     color: #F7F9FC;
-}
-
-.currentTrack {
     background-color: #474747;
 }
