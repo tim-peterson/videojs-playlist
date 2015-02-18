@@ -18,6 +18,7 @@
 /* list */
 .vjs-playlist ul {
     padding: 0;
+    list-style: none;
 }
 
 
@@ -30,7 +31,6 @@
     font-size: 16px;
     transition-property: background-color;
     transition-duration: .4s;
-    list-style: none;
     display: block;
     width: 100%;
 }
@@ -40,6 +40,8 @@
     background-color: #373737;
     transition-duration: .1s;
     transition-property: background-color;
+    text-decoration: none;
+    text-shadow: none;
 }
 
 /* current track */
