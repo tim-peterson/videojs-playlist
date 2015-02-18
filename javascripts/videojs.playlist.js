@@ -45,12 +45,12 @@
 
                 //remove 'currentTrack' CSS class
                 for(var i = 0; i < trackCount; i++){
-                    if (tracks[i].classList.contains('currentTrack')) {
-                        tracks[i].className = tracks[i].className.replace(/\bcurrentTrack\b/, 'nonPlayingTrack');
+                    if (tracks[i].classList.contains('current-track')) {
+                        tracks[i].className = tracks[i].className.replace(/\bcurrent-track\b/, 'nonPlayingTrack');
                     }
                 }
-                //add 'currentTrack' CSS class
-                track.className = track.className + ' currentTrack';
+                //add 'current-track' CSS class
+                track.className = track.className + ' current-track';
 
                 if(typeof settings.onTrackSelected === 'function') {
                     settings.onTrackSelected.apply(track);
