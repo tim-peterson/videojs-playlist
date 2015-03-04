@@ -94,7 +94,7 @@
 
         //remove 'currentTrack' CSS class
         for(var i=0; i<trackCount; i++){
-            if(tracks[i].classList.contains('currentTrack')){
+            if (tracks[i].className.indexOf('currentTrack') !== -1) {
                 tracks[i].className=tracks[i].className.replace(/\bcurrentTrack\b/,'nonPlayingTrack');
             }
         }
