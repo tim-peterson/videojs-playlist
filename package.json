@@ -2,7 +2,8 @@
   "name": "videojs-playlist",
   "description": "playlist plugin for video.js",
   "version": "0.0.1",
+  "main": "javascripts/videojs.playlist.js",
   "peerDependencies": {
-    "video-js": "4.0"
+    "video-js": "5.0"
   }
 }
