@@ -58,12 +58,16 @@
       //get new src
       var src = track.getAttribute('data-src');
       type = track.getAttribute('data-type');
+      poster = track.getAttribute('data-poster');
       index = parseInt(track.getAttribute('data-index')) || index;
       //console.log('track select click src:'+src);
 
       player.src([
         {type: type, src: src}
       ]);
+
+      // set our poster
+      player.poster(poster);
 
       if (play) {
         player.play();
