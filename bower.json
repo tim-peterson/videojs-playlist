@@ -2,6 +2,7 @@
   "name": "videojs-playlist-audio",
   "homepage": "https://github.com/tim-peterson/videojs-playlist",
   "main": [
-    "javascripts/videojs.playlist.js"
+    "javascripts/videojs.playlist.js",
+    "stylesheets/videojs.playlist.css"
   ]
 }
