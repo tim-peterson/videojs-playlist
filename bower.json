@@ -1,0 +1,7 @@
+{
+  "name": "videojs-playlist-audio",
+  "homepage": "https://github.com/tim-peterson/videojs-playlist",
+  "main": [
+    "javascripts/videojs.playlist.js"
+  ]
+}
