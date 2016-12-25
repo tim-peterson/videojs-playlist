@@ -55,10 +55,6 @@
     var trackSelect = function(track) {
       //console.log(track);
 
-      if (track instanceof MouseEvent) {
-        track = this;
-      }
-
       //get new src
       var src = track.getAttribute('data-src');
       type = track.getAttribute('data-type');
