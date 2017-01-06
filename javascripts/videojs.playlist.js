@@ -2,7 +2,7 @@
 
  videojs.plugin('playlist', function(options) {
   //this.L="vjs_common_one";
-  
+
 
   //console.log(this);
   var id=this.el().id;
@@ -75,12 +75,12 @@
 
       //remove 'currentTrack' CSS class
       for (var i=0; i<trackCount; i++){
-          if (tracks[i].className.indexOf('currentTrack') !== -1) {
-              tracks[i].className=tracks[i].className.replace(/\bcurrentTrack\b/,'nonPlayingTrack');
+          if (tracks[i].parentNode.className.indexOf('currentTrack') !== -1) {
+              tracks[i].parentNode.className = tracks[i].parentNode.className.replace(/\bcurrentTrack\b/,'nonPlayingTrack');
           }
       }
       //add 'currentTrack' CSS class
-      track.className = track.className + " currentTrack";
+      track.parentNode.className = track.className + " currentTrack";
       if (typeof onTrackSelected === 'function') {
         onTrackSelected.apply(track);
       }
