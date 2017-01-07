@@ -2,7 +2,7 @@
 
  videojs.plugin('playlist', function(options) {
   //this.L="vjs_common_one";
-  
+
 
   //console.log(this);
   var id=this.el().id;
@@ -85,11 +85,11 @@
         onTrackSelected.apply(track);
       }
 
-    } // end trackSelect
+    }; // end trackSelect
 
     //if we want to start at track other than 1st track
     if (typeof options.setTrack !='undefined' ){
-      options.setTrack=parseInt(options.setTrack);
+      options.setTrack = parseInt(options.setTrack);
       currentTrack = tracks[options.setTrack];
       index = options.setTrack;
       play = false;
@@ -117,13 +117,13 @@
       prev:function(){
         var j = index-1;
         //console.log('j'+j);
-        if(j<0 || j>trackCount) j=0;
+        if( j<0 || j>trackCount ) j = 0;
         trackSelect(tracks[j]);
       },
       next:function(){
         var j = index+1;
         //console.log('j'+j);
-        if(j<0 || j>trackCount) j=0;
+        if(j<0 || j>trackCount) j = 0;
         trackSelect(tracks[j]);
       }
     };
